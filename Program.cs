@@ -5,7 +5,7 @@ class Program
 {
     static void Main()
     {
-        int n = 0;
+        int Numberofstudents = 0;
 
         while (true)
         {
@@ -15,38 +15,37 @@ class Program
 
             if (KS >= 1 && KS <= 50)
             {
-                n = KS;
+                Numberofstudents = KS;
                 break;
             }
-            else Console.WriteLine("Ошибка: нужно ввести целое число от 1 до 50.");
+            else Console.WriteLine("Ошибка: нужно ввести целое число (от 1 до 50)");
         }
 
-        Console.WriteLine("Вы ввели: " + n);
 
-        int[] ball = new int[n];
-        for (int i = 0; i < n; i++)
+        int[] ball = new int[Numberofstudents];
+        for (int i = 0; i < Numberofstudents; i++)
         {
             while (true)
             {
-                Console.WriteLine("Введите балл студента " + (i+1) + " (от 1 до 100)");
-                int B = int.Parse(Console.ReadLine());
-                if (B >= 1 && B <= 100)
+                Console.WriteLine("Введите балл студента " + (i+1) + " (от 0 до 100): ");
+                int BallS = int.Parse(Console.ReadLine());
+                if (BallS >= 0 && BallS <= 100)
                 {
-                    ball[i] = B;
+                    ball[i] = BallS;
                     break;
                 }
-                else Console.WriteLine("Ошибка: нужно ввести целое число от 1 до 100");
+                else Console.WriteLine("Ошибка: нужно ввести целое число от (0 до 100)");
             }
         }
 
         int SumB = 0;
 
-        for (int i = 0; i < n; i++)
+        for (int i = 0; i < Numberofstudents; i++)
         {
             SumB = SumB + ball[i];
         }
 
-        double SB = (double)SumB / n;
+        double SB = (double)SumB / Numberofstudents;
 
         Console.WriteLine("Средний балл: " + SB.ToString("F1"));
     }
